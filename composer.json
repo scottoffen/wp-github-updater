@@ -1,0 +1,52 @@
+{
+  "name": "scottoffen/wp-github-updater",
+  "description": "Update WordPress plugins and themes from GitHub releases using both public and private repositories.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "updater",
+    "github",
+    "releases",
+    "plugin",
+    "theme"
+  ],
+  "homepage": "https://github.com/scottoffen/wp-github-updater",
+  "support": {
+    "docs": "https://scottoffen.github.io/wp-github-updater/"
+  },
+  "authors": [
+    {
+      "name": "Scott Offen"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "ext-json": "*",
+    "scottoffen/markdown-converter": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5 || ^11.5 || ^12.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": [
+      "@composer dump-autoload --dev",
+      "phpunit"
+    ]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
