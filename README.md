@@ -73,7 +73,7 @@ The updater installs the zip that you attach to a stable GitHub release. Its tag
 
 The release must contain exactly one asset that is a zip with a name that starts with the name of the plugin or theme folder and a hyphen, such as `example-plugin-1.2.3.zip`. The zip must contain a single top-level folder named after the plugin or theme, a `Version` header that matches the tag, and the `vendor` folder with the runtime dependencies.
 
-The [scottoffen/workflows](https://github.com/scottoffen/workflows#wordpress-workflows) repository has a PowerShell packaging script and a reusable GitHub Actions workflow that produce a zip in this layout. The script builds the zips, and the workflow runs it in CI and can create a draft release for a repository that ships a single plugin or theme. Any build process that produces the same zip works too.
+Using the accompanying packaging script and reusable GitHub Actions workflow from the [scottoffen/workflows](https://github.com/scottoffen/workflows#wordpress-workflows) repository is recommended but not required. They produce a zip in this layout, and any other build process that produces the same zip works too.
 
 ## Bundling in Multiple Plugins and Themes
 

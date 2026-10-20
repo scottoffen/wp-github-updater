@@ -57,19 +57,11 @@ The `Version` header (either in the main file of the plugin or in the `style.css
 
 ## Building the Zip
 
-The updater doesn't require the plugin or theme to use a specific build tool. Any process that produces the zip described above will work. One option is the packaging script and the reusable GitHub Actions workflow in the [scottoffen/workflows](https://github.com/scottoffen/workflows#wordpress-workflows) repository. They are two separate pieces that work together: the script builds the zips, and the workflow runs the script in CI.
-
-The script packages each plugin and theme under `src/`, runs `composer install --no-dev` for a package that has a `composer.json`, and creates each zip with the name `<folder>-<version>.zip`, which is the name that the updater looks for by default. Each repository contains its own copy of the script, in `scripts/wordpress-package.ps1`, and the same copy runs locally and in CI.
-
-The workflow contains no packaging logic, so it works only when the script is in your repository, at `scripts/wordpress-package.ps1` by default. When a run on the default branch packages a single plugin or theme and there is no existing tag for the version, the workflow will also create a draft release with the zip attached. The updater ignores drafts, so it can select the release only after you publish it. The [WordPress Package](https://github.com/scottoffen/workflows#wordpress-package) section of the repository describes how to set up the workflow.
-
-:::note
-The workflow generates release notes for the draft as a starting point. Release notes will appear in the update details, so be sure to update them before you publish the release.
-:::
+Using the accompanying packaging script and reusable GitHub Actions workflow from the [scottoffen/workflows](https://github.com/scottoffen/workflows#wordpress-workflows) repository is recommended but not required. The README of that repository describes how they work and how to set them up. Any other process that produces the zip described above works too.
 
 ## Release Notes
 
-The notes on the GitHub release are written in Markdown and converted to HTML when they are shown. A plugin shows them in the details popup, and a theme shows them on a separate page. A release with no notes shows a short message saying that none were published.
+The notes on the GitHub release are written in Markdown and converted to HTML when they are shown. A plugin shows them in the details popup, and a theme shows them on a separate page. A release with no notes shows a short message saying that none were published. Release notes appear in the update details, so review them before you publish a release.
 
 The popup of a plugin is built from the `Plugin Name`, `Author`, and `Plugin URI` headers in the main file, the date that the release was published, and the notes in a Changelog section. It always describes the latest available release, regardless of the text on the link used to open it.
 
